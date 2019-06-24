@@ -1,0 +1,277 @@
+{
+  "Variables": [
+    {
+      "name": "Flax",
+      "value": "Flax",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "Lumbridge bank",
+      "value": "Coordinate(3208, 3220, 2)",
+      "type": "CHECKPOINT"
+    },
+    {
+      "name": "Spinning wheel",
+      "value": "",
+      "type": "GO"
+    },
+    {
+      "name": "Spin",
+      "value": "Spin",
+      "type": "ACTION"
+    }
+  ],
+  "NodeCollection": [
+    {
+      "name": "StartCondition",
+      "base": {
+        "id": "68ecb34c-c02f-4d19-9a01-202ca23cc004",
+        "position": {
+          "x": "-113.0",
+          "y": "-15.0"
+        },
+        "flowTasks": {
+          "success": "7f6eaa71-5efc-4c86-87ab-309a102e0c13"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "GameMode": "RS3",
+        "IntervalLow": 1094.8924457117735,
+        "IntervalHigh": 1994.892445711773
+      }
+    },
+    {
+      "name": "PlayerCondition",
+      "base": {
+        "id": "7f6eaa71-5efc-4c86-87ab-309a102e0c13",
+        "position": {
+          "x": "169.0",
+          "y": "-7.0"
+        },
+        "flowTasks": {
+          "failure": "5e8ec77d-f176-4c5f-908b-13c675c2d64a"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "within": "",
+          "MinLvl": "",
+          "MaxLvl": "",
+          "type": "NpcQuery"
+        }
+      },
+      "variables": {
+        "Values": [],
+        "ValueRegex": false,
+        "Condition": "Is moving:"
+      }
+    },
+    {
+      "name": "PlayerCondition",
+      "base": {
+        "id": "5e8ec77d-f176-4c5f-908b-13c675c2d64a",
+        "position": {
+          "x": "534.0",
+          "y": "-2.0"
+        },
+        "flowTasks": {
+          "failure": "e958613a-46a2-462a-8c56-e2b849b1968e"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "within": "",
+          "MinLvl": "",
+          "MaxLvl": "",
+          "type": "NpcQuery"
+        }
+      },
+      "variables": {
+        "Values": [],
+        "ValueRegex": false,
+        "Condition": "Is animating (2s delay):"
+      }
+    },
+    {
+      "name": "CalculationCondition",
+      "base": {
+        "id": "f240b7e1-5fb0-4581-a783-3273b1869a12",
+        "position": {
+          "x": "-16.0",
+          "y": "227.0"
+        },
+        "flowTasks": {
+          "failure": "f43efea3-6e2b-413b-a7d4-f2fa76d23360"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Values": [],
+        "ValueRegex": false,
+        "Comparators": [
+          "Lumbridge bank"
+        ],
+        "CompRegex": false,
+        "Condition": "Position (\u003d)",
+        "Type": "Coordinate"
+      }
+    },
+    {
+      "name": "InventoryCondition",
+      "base": {
+        "id": "e958613a-46a2-462a-8c56-e2b849b1968e",
+        "position": {
+          "x": "995.0",
+          "y": "-18.0"
+        },
+        "flowTasks": {
+          "success": "bd815ab7-f7c2-43d3-b49d-06a911420ea5",
+          "failure": "f240b7e1-5fb0-4581-a783-3273b1869a12"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "type": "InventoryQuery"
+        }
+      },
+      "variables": {
+        "ItemValues": [
+          "Flax"
+        ],
+        "ItemRegex": false,
+        "Condition": "Contains all of:"
+      }
+    },
+    {
+      "name": "CalculationCondition",
+      "base": {
+        "id": "bd815ab7-f7c2-43d3-b49d-06a911420ea5",
+        "position": {
+          "x": "1094.0",
+          "y": "257.0"
+        },
+        "flowTasks": {
+          "success": "d7d99467-bf1c-4bfd-9fc3-990b3d56b01e",
+          "failure": "4a3f45f6-c59f-4b2b-a82e-c10baf83de5c"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Values": [],
+        "ValueRegex": false,
+        "Comparators": [
+          "Spinning wheel"
+        ],
+        "CompRegex": false,
+        "Condition": "Position (\u003d)",
+        "Type": "Coordinate"
+      }
+    },
+    {
+      "name": "CheckpointStart",
+      "base": {
+        "id": "383cf0e4-6f35-416d-8bcf-5cdb99c6a398",
+        "position": {
+          "x": "128.0",
+          "y": "739.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "CheckpointTask name": "Lumbridge bank"
+      }
+    },
+    {
+      "name": "CheckpointStart",
+      "base": {
+        "id": "2ebacb1d-6667-4ecd-8a8e-6f8e1195bb88",
+        "position": {
+          "x": "-131.0",
+          "y": "741.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "CheckpointTask name": "Spinning wheel"
+      }
+    },
+    {
+      "name": "CheckpointEndTask",
+      "base": {
+        "id": "4a3f45f6-c59f-4b2b-a82e-c10baf83de5c",
+        "position": {
+          "x": "1465.0",
+          "y": "468.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Checkpoint name": "Spinning wheel",
+        "ItemRegex": false
+      }
+    },
+    {
+      "name": "CheckpointEndTask",
+      "base": {
+        "id": "f43efea3-6e2b-413b-a7d4-f2fa76d23360",
+        "position": {
+          "x": "362.0",
+          "y": "453.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Checkpoint name": "Lumbridge bank",
+        "ItemRegex": false
+      }
+    },
+    {
+      "name": "InteractionAction",
+      "base": {
+        "id": "d7d99467-bf1c-4bfd-9fc3-990b3d56b01e",
+        "position": {
+          "x": "1452.0",
+          "y": "73.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "bool3": false,
+          "list3": [
+            "Spin"
+          ],
+          "TypeList": [],
+          "within": "",
+          "results": "",
+          "type": "GOQuery"
+        }
+      },
+      "variables": {
+        "Condition": "GameObject",
+        "ItemValues": [
+          "Spinning wheel"
+        ],
+        "ItemRegex": false,
+        "ActionValues": [
+          "Spin"
+        ],
+        "ActionRegex": false
+      }
+    }
+  ],
+  "BotCategory": "OTHER",
+  "inventoryData": {},
+  "internalData": {
+    "Mouse multiplier": 1.0,
+    "Mouse path": "MLP_PATH_GENERATOR",
+    "Disable advanced": false
+  }
+}
